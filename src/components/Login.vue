@@ -54,7 +54,7 @@ export default {
             if (res.data.meta.status === 200) {
               this.$message.success('登录成功')
               localStorage.setItem('token', res.data.data.token)
-              this.$router.push('./Home.vue')
+              this.$router.push('./home')
             } else {
               this.$message.error('登录失败')
             }

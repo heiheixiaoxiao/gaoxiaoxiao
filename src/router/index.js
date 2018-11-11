@@ -16,14 +16,14 @@ const router = new Router({
       component: Login
     },
     {
-      path: '/Home',
-      componet: Home
+      path: '/home',
+      component: Home
     }
   ]
 })
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token')
-  if (to.path == '/login' || token) {
+  if (to.path === '/login' || token) {
     next()
   } else {
     next('Login')
