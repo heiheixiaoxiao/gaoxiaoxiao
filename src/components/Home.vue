@@ -20,15 +20,16 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
-      unique-opened>
+      unique-opened
+      router>
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span>用户管理</span>
         </template>
-          <el-menu-item index="1-1">
+          <el-menu-item index="/users">
           <i class="el-icon-menu"></i>
-          <span slot="title">用户列表</span>
+          <span slot="title" >用户列表</span>
           </el-menu-item>
       </el-submenu>
        <el-submenu index="2">
@@ -48,45 +49,8 @@
     </el-menu>
       </el-aside>
       <el-main>
+         <router-view/>
         <!-- 内容展示区 -->
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/' }">用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-      </el-breadcrumb>
-        <div style="margin-top: 15px;" class="search">
-          <el-input placeholder="请输入关键字" v-model="input5" class="input-with-select">
-            <el-button slot="append" icon="el-icon-search"></el-button>
-          </el-input>
-           <el-button type="success" style="margin-left: 10px;" plain>用户添加</el-button>
-      </div>
-       <template>
-    <el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="邮箱"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="电话">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="状态">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="操作">
-      </el-table-column>
-    </el-table>
-  </template>
       </el-main>
     </el-container>
   </el-container>
@@ -94,18 +58,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      input5: '',
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }
-      ]
-    }
-  },
   // 二级导航展开和关闭操作
   methods: {
     handleOpen(key, keyPath) {
@@ -181,14 +133,6 @@ export default {
   .el-main {
     background-color: #d4dfe4;
     margin-bottom: 20px;
-    .search {
-      display: flex;
-      justify-content: flex-start;
-      width: 500px;
-    }
-    .el-table {
-      margin-top: 10px;
-    }
   }
 }
 </style>
